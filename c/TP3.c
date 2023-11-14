@@ -102,34 +102,80 @@ else{ resolveTwo(a,b,c);
 
 }
 // déclaration de la la fonction de lecture et reconnaissance de base
-decode(char expression[])   {            // l'expression des de la forme AAAx2+BBBBBx+CCCCCCCCC
+decode(char expression[])   {            // l'expression des de la forme AAAx2+BBBx+CCC
   int a,b,c;
   char chaineA[10];
   char chaineB[10];
   char chaineC[10];
+  int signeA=1;
+  int signeB=1;
+  int signeC=1;
+
   int i,j,k;
   int l=0;
   int m=0;
   int long_chain = strlen(expression);
+
+ // printf("\n premier charA %c",expression[0]);    // affichage pour vérifier le premier caractère du terme de degré 2
+
+    if (expression[0]=='-')
+      {
+         signeA = -1;                            // détection du caractère '-' pour le terme de degré2 et changement de signe
+      }
+
+
+
   for(i=0;expression[i]!='x';i++)                      // boucle pour récupérer le terme de degré 2
          {
+
+      if (signeA==1){
         chaineA[i]=expression[i];
       }
+        else{
+        chaineA[i]=expression[i+1];                     // gestion du décalage dans la chaine si le premier caractère du terme de degré 2 est '-'
+      }
+
+         }
+
+            if ((expression[i+1]=='-')&&(signeA==1))
+      {
+         signeB= -1;               // attribution du signe de B en fonction du 1er caractère juste après l'indice (exp)2 modulo signe du terme de degre 1
+      }
+                  if ((expression[i]=='-')&&(signeA==-1))
+      {
+         signeB= -1;
+      }
+//printf("\n premier charB %c",expression[i]);    // affichage pour vérifier le premier caractère du terme de degré 1 modulo signe du terme de degre 1
+//printf("\n premier charB %c",expression[i+1]);
+
+     if (signeA==-1){
+        i--;                                        // décalage de la suite de la chaine si son premier caractère est '-'
+      }
+
+
  for(j=i+3;expression[j]!='x';j++)                      // boucle pour récupérer le terme de degré 1
     // on "saute" la chaine de  caractères 'x2+' d'où j=i+3
         {
 chaineB[l]=expression[j];
 l++;
       }
+            if (expression[j+1]=='-')
+      {
+         signeC= -1;                            // attribution du signe de C en fonction du 1er caractère juste après le second x dans la chaine
+      }
+//printf("\n premier charC %c",expression[j+2]);    // affichage pour vérifier le premier caractère du terme de degré 0
+
 for(k=j+2;k < long_chain;k++)                      // boucle pour récupérer le terme de degré 0
     // on "saute" la chaine de  caractères 'x+' d'où k=j+2
            {
 chaineC[m]=expression[k];
 m++;
       }
-a = atoi(chaineA);                          // conversion des chaines constituées en entiers
-b = atoi(chaineB);
-c = atoi(chaineC);
+a = signeA*atoi(chaineA);                          // conversion des chaines constituées en entiers
+b = signeB*atoi(chaineB);
+c = signeC*atoi(chaineC);
+//printf("\n a,b,c = %d,%d,%d ",a,b,c);            // affichage pour vérifier si les 3 termes sont bien identifiés
+
 
 resolve(a,b,c);             // appel de la fonction resolve avec les termes identifiés
 }
@@ -147,6 +193,11 @@ scanf("%s", chaine_test);
 //  decode("4x2+4x+1");         // test avec un delta=0
 //  decode("2x2+3x+4");         // test avec un delta < 0
 //  decode("0x2+3x+4");         // test avec un polynome du 1er degré
+
+
+// decode("-5x2+5x+1);          // test changement signe de A
+// decode("-5x2-5x+1);          // test changement signe de B
+// decode("5x2+5x-1);          // test changement signe de C
 
  decode(chaine_test);
 
