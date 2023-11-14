@@ -5,7 +5,7 @@ En C tout a été implémenté mais pour le moment la fonction 'décode' ne pren
  
 Par manque de temps également, l'implémentation en python a été abordée mais non finalisée, le code ne compile pas.
 
-Pour tout de même fournir un travail en python "fonctionnel", le répertoire "py" contient égalementles fonctions demandées à l'issue du TP2
+Pour tout de même fournir un travail en python "fonctionnel", le répertoire "py" contient également les fonctions demandées à l'issue du TP2
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 1.2	Fonction d’affichage
@@ -495,6 +495,7 @@ chaine_test= input("Entrez un polymome sous la forme ax2+bx+c pour calculer ses 
 decode(chaine_test)
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 
 
