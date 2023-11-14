@@ -1,11 +1,11 @@
 # esirem-algo-tp3-
 Le Document contient les Algorithmes des fonctions du TP3
 
-En C tout a été implémenté mais pour le moment la fonction 'décode' ne prend en compte ni les signes négatifs ni les espaces.
+En C, tout a été implémenté mais pour le moment la fonction 'décode' gére les signes négatifs mais pas les espaces. De plus le cas particulier ou les indices de A et B sont égaux à 1 n'est pas géré. exemple,'1x2+1x+c' fonctionne mais 'x2+x+c' ne fonctionne pas
  
 Par manque de temps également, l'implémentation en python a été abordée mais non finalisée, le code ne compile pas.
 
-Pour tout de même fournir un travail en python "fonctionnel", le répertoire "py" contient égalementles fonctions demandées à l'issue du TP2
+Pour tout de même fournir un travail en python "fonctionnel", le répertoire "py" contient également les fonctions demandées à l'issue du TP2
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
